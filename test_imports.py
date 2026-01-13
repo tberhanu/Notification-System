@@ -29,8 +29,8 @@ try:
     from notification_service import NotificationService
     print("OK")
     
-    print("✓ Importing consumer service...", end=" ")
-    from consumer_service import ConsumerService, NotificationConsumerWorker
+    print("✓ Importing Kafka consumer...", end=" ")
+    from kafka_consumer import ConsumerService, NotificationConsumerWorker
     print("OK")
     
     print("✓ Importing notification system...", end=" ")
@@ -39,10 +39,6 @@ try:
     
     print("✓ Importing kafka producer...", end=" ")
     from kafka_producer import kafka_producer, EMAIL_TOPIC
-    print("OK")
-    
-    print("✓ Importing PostgreSQL repository...", end=" ")
-    from postgresql_repository import PostgreSQLUserRepository
     print("OK")
     
     print("-" * 60)

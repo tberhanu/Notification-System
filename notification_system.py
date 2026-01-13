@@ -1,5 +1,5 @@
 from notification_service import NotificationService
-from consumer_service import ConsumerService
+from kafka_consumer import ConsumerService
 from user_repository import UserRepository
 from handler_factory import NotificationHandlerFactory
 from models import NotificationEvent
@@ -19,7 +19,7 @@ class NotificationSystem:
     def _setup_consumers(self):
         """Set up Kafka consumer workers for all topics."""
         from kafka_producer import EMAIL_TOPIC, SMS_TOPIC, IOS_TOPIC, ANDROID_TOPIC, DLQ_TOPIC
-        from consumer_service import NotificationConsumerWorker, DLQConsumerWorker
+        from kafka_consumer import NotificationConsumerWorker, DLQConsumerWorker
         from handlers import EmailHandler, SMSHandler, IOSPushHandler, AndroidPushHandler
 
         self.consumer_service.add_worker(NotificationConsumerWorker(EMAIL_TOPIC, EmailHandler(), 'EMAIL'))
